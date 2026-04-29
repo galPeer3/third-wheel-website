@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Third Wheel 🪺 — Legal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FFF7ED;
+  --warm: #FEF3C7;
+  --ink: #1C1917;
+  --muted: #78716C;
+  --accent: #C2410C;
+  --accent-light: #FED7AA;
+  --border: #E7DDD4;
+  --surface: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,247,237,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 24px; }
+
+.nav-link {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  padding: 0;
+}
+
+.nav-link:hover { color: var(--accent); }
+.nav-link.active { color: var(--accent); }
+
+.hero {
+  padding: 80px 48px 60px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.2;
+  transition: opacity 0.2s;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tab-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 48px 48px;
+}
+
+.tab-btn {
+  padding: 10px 28px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tab-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 48px 100px;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.last-updated {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section {
+  margin-bottom: 24px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+}
+
+.section-number {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.section p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 300;
+  margin-bottom: 12px;
+  line-height: 1.75;
+}
+
+.section p:last-child { margin-bottom: 0; }
+
+.section ul {
+  margin: 12px 0 12px 20px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 300;
+}
+
+.section ul li { margin-bottom: 6px; line-height: 1.65; }
+
+.section a { color: var(--accent); }
+
+.highlight-box {
+  background: var(--warm);
+  border: 1px solid var(--accent-light);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.highlight-box strong { color: var(--accent); }
+
+.contact-section {
+  background: var(--ink);
+  border-radius: 20px;
+  padding: 32px;
+  margin-top: 32px;
+  text-align: center;
+  color: white;
+}
+
+.contact-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.contact-section p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.contact-link {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: white;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.contact-link:hover { background: #9A3412; }
+
+footer {
+  text-align: center;
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+footer a { color: var(--accent); text-decoration: none; cursor: pointer; }
+
+@media (max-width: 768px) {
+  nav { padding: 12px 20px; }
+  .hero { padding: 60px 20px 40px; }
+  .tab-switcher { padding: 0 20px 32px; }
+  .content { padding: 0 20px 60px; }
+  .section { padding: 20px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo" onclick="navigate('/')">Third <span>Wheel</span> 🪺</span>
+  <div class="nav-links">
+    <button class="nav-link" id="nav-terms" onclick="navigate('/terms-of-use')">Terms of Use</button>
+    <button class="nav-link" id="nav-privacy" onclick="navigate('/privacy-policy')">Privacy Policy</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Legal</div>
+  <h1 id="hero-title">Legal</h1>
+  <p>We keep it simple and honest. Here's exactly how Third Wheel works and how we handle your data.</p>
+</div>
+
+<div class="tab-switcher">
+  <button class="tab-btn" id="btn-terms" onclick="navigate('/terms-of-use')">📋 Terms of Use</button>
+  <button class="tab-btn" id="btn-privacy" onclick="navigate('/privacy-policy')">🔒 Privacy Policy</button>
+</div>
+
+<div class="content">
+
+  <!-- TERMS OF USE -->
+  <div class="tab-content" id="tab-terms">
+    <div class="last-updated">Last updated: April 29, 2026</div>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>What is Third Wheel?</h2>
+      <p>Third Wheel ("the Service") is an AI-powered couples assistant that operates through WhatsApp. It is developed and operated by Gal Peer ("we", "us", "our") as a personal project currently in beta.</p>
+      <p>Third Wheel helps couples manage daily life together — including shared shopping lists, expense tracking, calendar coordination, date night planning, home services management, and more.</p>
+      <div class="highlight-box">
+        <strong>Beta notice:</strong> Third Wheel is currently in beta. Features may change and the service may be interrupted at any time. We appreciate your patience and feedback.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>Acceptance of Terms</h2>
+      <p>By using Third Wheel — whether through WhatsApp, our website, or any other interface — you agree to these Terms of Use. If you do not agree, please do not use the Service.</p>
+      <p>These terms apply to both partners in a couple account. By inviting your partner to join, you confirm they have agreed to these terms as well.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Who Can Use Third Wheel</h2>
+      <p>You must be at least 18 years old to use Third Wheel. By using the Service, you confirm that you are 18 or older.</p>
+      <p>Third Wheel is currently available by invitation only during the beta period. Access may be revoked at any time at our discretion.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>How the Service Works</h2>
+      <p>Third Wheel uses artificial intelligence (Anthropic's Claude) to understand your messages and respond helpfully. Your conversations are processed by Claude's API to generate responses.</p>
+      <p>The Service integrates with third-party services you authorize, including:</p>
+      <ul>
+        <li>Google Calendar — to read and create events</li>
+        <li>Google Maps — to find places and directions</li>
+        <li>WhatsApp — as the primary communication channel</li>
+        <li>Ontopo — for restaurant reservations</li>
+        <li>OpenAI Whisper — for voice message transcription</li>
+      </ul>
+      <p>You can revoke access to any integration at any time by contacting us.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Your Account & Couple Setup</h2>
+      <p>Third Wheel creates a shared couple account linking two WhatsApp numbers. Each person has their own private space and a shared space visible to both partners.</p>
+      <p>You are responsible for:</p>
+      <ul>
+        <li>Providing accurate information when signing up</li>
+        <li>Keeping your WhatsApp number active and accessible</li>
+        <li>Only inviting a partner who has consented to use the Service</li>
+        <li>Any activity that occurs through your account</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Acceptable Use</h2>
+      <p>You agree to use Third Wheel only for lawful, personal purposes. You must not:</p>
+      <ul>
+        <li>Use the Service to harass, abuse, or harm others</li>
+        <li>Attempt to reverse engineer, scrape, or exploit the Service</li>
+        <li>Use the Service for commercial purposes without our written consent</li>
+        <li>Impersonate another person or entity</li>
+        <li>Send spam or automated messages through the Service</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>AI Limitations & Accuracy</h2>
+      <p>Third Wheel uses AI to understand and respond to your messages. While we strive for accuracy, AI systems are not perfect.</p>
+      <div class="highlight-box">
+        <strong>Important:</strong> Do not rely on Third Wheel for medical, legal, financial, or emergency advice. AI responses may sometimes be incorrect, incomplete, or outdated. Always verify important information independently.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Restaurant Bookings & Third-Party Services</h2>
+      <p>When Third Wheel books a table on your behalf, you are entering into an agreement directly with the restaurant — not with us. We are not responsible for restaurant cancellations, no-show fees, or errors on third-party platforms.</p>
+      <p>Always confirm important bookings directly with the restaurant.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">09</div>
+      <h2>Intellectual Property</h2>
+      <p>Third Wheel and all its components are owned by Gal Peer. Content you create (shopping lists, notes, memories) remains yours. We do not claim ownership of your personal data.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">10</div>
+      <h2>Service Availability & Changes</h2>
+      <p>We reserve the right to modify, suspend, or discontinue Third Wheel at any time. We may update these Terms at any time — continued use constitutes acceptance. We will notify you of significant changes via WhatsApp.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">11</div>
+      <h2>Limitation of Liability</h2>
+      <p>Third Wheel is provided "as is" without any warranty. To the maximum extent permitted by law, we are not liable for any indirect, incidental, or consequential damages arising from your use of the Service.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">12</div>
+      <h2>Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Israel. Any disputes shall be resolved exclusively in the courts of Tel Aviv, Israel.</p>
+    </div>
+
+
+  </div>
+
+  <!-- PRIVACY POLICY -->
+  <div class="tab-content" id="tab-privacy">
+    <div class="last-updated">Last updated: April 29, 2026</div>
+
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>Our Privacy Promise</h2>
+      <p>Third Wheel only works if you trust us with personal information. We take that seriously.</p>
+      <div class="highlight-box">
+        <strong>The short version:</strong> We collect only what's needed to make Third Wheel work. We don't sell your data. We don't share it with advertisers. Your private memories stay private — even from your partner.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>What We Collect</h2>
+      <p><strong>Information you give us directly:</strong></p>
+      <ul>
+        <li>Your name and WhatsApp phone number</li>
+        <li>Your partner's name and WhatsApp phone number</li>
+        <li>Preferences you share (coffee order, sizes, dietary restrictions, etc.)</li>
+        <li>Shopping lists, expenses, notes, and decisions you save</li>
+        <li>Places and contacts you store</li>
+        <li>Calendar events (if you connect Google Calendar)</li>
+      </ul>
+      <p><strong>Information collected automatically:</strong></p>
+      <ul>
+        <li>Your messages and conversation history (stored for 24 hours for context)</li>
+        <li>Photos and receipts you send (processed, not stored in raw form)</li>
+        <li>Voice messages (transcribed by OpenAI Whisper, audio immediately discarded)</li>
+        <li>Location data you share voluntarily</li>
+        <li>Usage patterns (what features you use, when you're active)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>How We Use Your Data</h2>
+      <p>We use your information to provide and improve Third Wheel, personalize responses, connect you with your partner's shared information, and send proactive reminders.</p>
+      <p>We do <strong>not</strong> use your data to sell to advertisers, train AI models, or share with third parties beyond what's needed to run the service.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Private vs Shared Data</h2>
+      <div class="highlight-box">
+        <strong>Private memories</strong> — marked as private by you — are <strong>never</strong> visible to your partner. This is enforced at the database level, not just in the UI.
+      </div>
+      <p><strong>Your partner CAN see:</strong> shared shopping lists, shared expense records, preferences you marked as shared (coffee order, sizes, wishlist).</p>
+      <p><strong>Your partner CANNOT see:</strong> your private memories, your WhatsApp conversation with Third Wheel, anything you explicitly marked as private.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Third-Party Services</h2>
+      <ul>
+        <li><strong>Anthropic (Claude API)</strong> — processes your messages to generate AI responses. See <a href="https://anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a>.</li>
+        <li><strong>OpenAI (Whisper)</strong> — transcribes voice messages. Audio is discarded immediately after transcription. See <a href="https://openai.com/privacy" target="_blank">OpenAI's Privacy Policy</a>.</li>
+        <li><strong>Supabase</strong> — stores your data in a PostgreSQL database hosted in the EU. See <a href="https://supabase.com/privacy" target="_blank">Supabase's Privacy Policy</a>.</li>
+        <li><strong>Google (Calendar & Maps)</strong> — only if you connect your Google account. Read/write Calendar access, read Maps access. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</li>
+        <li><strong>Twilio / WhatsApp</strong> — messaging infrastructure. Your messages pass through their servers.</li>
+        <li><strong>Railway</strong> — hosts our server infrastructure.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Data Security</h2>
+      <ul>
+        <li>All data encrypted in transit (HTTPS/TLS)</li>
+        <li>Google OAuth tokens encrypted at rest using AES-256-GCM</li>
+        <li>Database access restricted — no anonymous access permitted</li>
+        <li>Twilio webhook requests validated using HMAC signatures</li>
+        <li>We never store payment card information</li>
+      </ul>
+      <p>No system is 100% secure. In the unlikely event of a data breach, we will notify you promptly via WhatsApp.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">07</div>
+      <h2>Data Retention</h2>
+      <ul>
+        <li><strong>Conversation history</strong> — kept for 24 hours, then deleted automatically</li>
+        <li><strong>Shopping lists, expenses, memories</strong> — kept until you delete your account</li>
+        <li><strong>Receipt images</strong> — processed and immediately discarded. Only extracted data is stored</li>
+        <li><strong>Voice messages</strong> — audio discarded immediately after transcription</li>
+        <li><strong>OAuth tokens</strong> — kept until you revoke access or delete your account</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-number">08</div>
+      <h2>Your Rights</h2>
+      <p>You have the right to access, correct, delete, or export your data at any time. You can also revoke Google Calendar access or opt out of proactive messages.</p>
+      <p>To exercise any right, message us on WhatsApp or email us. We will respond within 30 days.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">09</div>
+      <h2>Children's Privacy</h2>
+      <p>Third Wheel is not intended for anyone under 18 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">10</div>
+      <h2>Account Deletion</h2>
+      <p>Message us "delete my account" on WhatsApp to delete your account. All your personal data will be permanently deleted within 30 days. Your partner's account remains active and unaffected.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">11</div>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via WhatsApp before they take effect. The date at the top of this page shows when it was last updated.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-number">12</div>
+      <h2>Governing Law</h2>
+      <p>This policy is governed by Israeli privacy law (Protection of Privacy Law, 5741-1981) and where applicable, the GDPR. We are based in Tel Aviv, Israel.</p>
+    </div>
+
+
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Third Wheel 🪺 ·
+    <a onclick="navigate('/terms-of-use')">Terms of Use</a> ·
+    <a onclick="navigate('/privacy-policy')">Privacy Policy</a>
+  </p>
+</footer>
+
+<script>
+  const ROUTES = {
+    'terms-of-use': {
+      tab: 'terms',
+      title: 'Third Wheel 🪺 — Terms of Use',
+      heading: 'Terms of Use'
+    },
+    'privacy-policy': {
+      tab: 'privacy',
+      title: 'Third Wheel 🪺 — Privacy Policy',
+      heading: 'Privacy Policy'
+    }
+  };
+
+  function navigate(path) {
+    if (path === '/') {
+      window.location.href = '/';
+      return;
+    }
+
+    // Extract route key from path
+    const key = path.replace(/^\//, '');
+    const route = ROUTES[key];
+    if (!route) return;
+
+    // Use hash routing — works everywhere including iframes
+    try {
+      window.history.pushState({}, '', path);
+    } catch(e) {
+      // Fallback to hash if pushState is blocked (e.g. iframe)
+      window.location.hash = key;
+    }
+
+    render(route);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function render(route) {
+    document.title = route.title;
+    document.getElementById('hero-title').textContent = route.heading;
+
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + route.tab).classList.add('active');
+
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + route.tab).classList.add('active');
+
+    document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+    document.getElementById('nav-' + route.tab).classList.add('active');
+  }
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', () => {
+    const key = window.location.pathname.replace(/^\//, '') || 
+                window.location.hash.replace('#', '');
+    const route = ROUTES[key] || ROUTES['terms-of-use'];
+    render(route);
+  });
+
+  // Handle hash changes (iframe fallback)
+  window.addEventListener('hashchange', () => {
+    const key = window.location.hash.replace('#', '');
+    const route = ROUTES[key];
+    if (route) render(route);
+  });
+
+  // Initial render — check path first, then hash, then default
+  function init() {
+    const pathKey = window.location.pathname.replace(/^\//, '');
+    const hashKey = window.location.hash.replace('#', '');
+    const key = ROUTES[pathKey] ? pathKey : 
+                ROUTES[hashKey] ? hashKey : 
+                'terms-of-use';
+    render(ROUTES[key]);
+  }
+
+  init();
+</script>
+
+</body>
+</html>
