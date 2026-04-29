@@ -1072,8 +1072,9 @@ async function handleSignup() {
   btn.disabled = true; btn.textContent = 'Sending... 🪺';
   try {
     const res = await fetch(API_URL, {
-      method:'POST', headers:{'Content-Type':'application/json','x-register-token':'tw-reg-a7f3c29d84e1b56f'},
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
+        token: 'tw-reg-a7f3c29d84e1b56f',
         name: firstName+' '+lastName,
         phone: fmt(phone, document.getElementById('phoneCountry').value),
         partner_name: partnerName,
